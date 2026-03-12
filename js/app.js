@@ -5,6 +5,7 @@ import { CalculatorEngine } from './engine.js';
 const engine = new CalculatorEngine();
 const displayEl = document.querySelector('.display-value');
 const keypad = document.querySelector('.keypad');
+const operatorBtns = document.querySelectorAll('.btn-operator[data-action="operator"]');
 
 /**
  * Format a display string with locale-aware thousands separators.
@@ -12,6 +13,9 @@ const keypad = document.querySelector('.keypad');
  */
 function formatForDisplay(raw) {
   if (raw === 'Error') return 'Error';
+
+  // Scientific notation — return as-is (already formatted by engine)
+  if (raw.includes('e') || raw.includes('E')) return raw;
 
   // Split integer and fractional parts
   const negative = raw.startsWith('-');
@@ -34,7 +38,23 @@ function formatForDisplay(raw) {
 /** Read the engine display value and update the DOM. */
 function updateDisplay() {
   const raw = engine.getDisplayValue();
-  displayEl.textContent = formatForDisplay(raw);
+  const formatted = formatForDisplay(raw);
+  displayEl.textContent = formatted;
+
+  // Shrink font for long display values (more than 10 visible chars)
+  displayEl.classList.toggle('display-shrink', formatted.length > 10);
+
+  // Update active operator highlight
+  updateActiveOperator();
+}
+
+/** Highlight the button for the currently pending operator. */
+function updateActiveOperator() {
+  const currentOp = engine.getOperation();
+  operatorBtns.forEach((btn) => {
+    btn.classList.toggle('btn-active',
+      currentOp !== null && btn.dataset.value === currentOp && engine.shouldResetDisplay);
+  });
 }
 
 /**
@@ -108,6 +128,27 @@ const KEY_MAP = {
   '%': ['percent'],
 };
 
+/**
+ * Find the keypad button matching a given action/value pair.
+ * Returns null if no match is found.
+ */
+function findButton(action, value) {
+  if (value !== undefined) {
+    return keypad.querySelector(`button[data-action="${action}"][data-value="${value}"]`);
+  }
+  return keypad.querySelector(`button[data-action="${action}"]`);
+}
+
+/**
+ * Briefly add the pressed class to a button for visual feedback
+ * when triggered via keyboard.
+ */
+function flashButton(btn) {
+  if (!btn) return;
+  btn.classList.add('btn-pressed');
+  setTimeout(() => btn.classList.remove('btn-pressed'), 120);
+}
+
 document.addEventListener('keydown', (e) => {
   const mapping = KEY_MAP[e.key];
   if (!mapping) return;
@@ -116,6 +157,10 @@ document.addEventListener('keydown', (e) => {
   e.preventDefault();
 
   const [action, value] = mapping;
+
+  // Visual feedback — flash the corresponding button
+  flashButton(findButton(action, value));
+
   handleAction(action, value);
 });
 

@@ -91,6 +91,11 @@ body {
   font-weight: 300;
   line-height: 1;
   word-break: break-all;
+  transition: font-size 0.1s ease;
+}
+
+.display-value.display-shrink {
+  font-size: calc(var(--display-font-size) * 0.65);
 }
 
 /* ===== Keypad Grid ===== */
@@ -111,7 +116,12 @@ body {
   aspect-ratio: 1;
   user-select: none;
   -webkit-user-select: none;
-  transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease, transform 0.1s ease, background-color 0.15s ease;
+}
+
+.btn:active,
+.btn.btn-pressed {
+  transform: scale(0.95);
 }
 
 /* ===== Number Buttons ===== */
@@ -124,6 +134,12 @@ body {
 .btn-operator {
   background-color: var(--btn-operator-color);
   color: var(--btn-operator-text-color);
+}
+
+.btn-operator.btn-active {
+  background-color: var(--btn-operator-text-color);
+  color: var(--btn-operator-color);
+  box-shadow: 0 0 8px rgba(240, 154, 54, 0.5);
 }
 
 /* ===== Function Buttons (AC, +/−, %) ===== */
