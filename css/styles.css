@@ -1,0 +1,74 @@
+/* ===== CSS Reset ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ===== Custom Properties ===== */
+:root {
+  /* Colors */
+  --bg-color: #000;
+  --display-color: #000;
+  --display-text-color: #fff;
+  --btn-number-color: #333;
+  --btn-number-text-color: #fff;
+  --btn-function-color: #a5a5a5;
+  --btn-function-text-color: #000;
+  --btn-operator-color: #f09a36;
+  --btn-operator-text-color: #fff;
+  --btn-active-opacity: 0.7;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  --display-font-size: 4rem;
+  --btn-font-size: 1.75rem;
+
+  /* Spacing */
+  --grid-gap: 1px;
+  --btn-padding: 1.25rem;
+  --display-padding: 1.5rem;
+
+  /* Layout */
+  --calculator-max-width: 400px;
+  --btn-border-radius: 50%;
+}
+
+/* ===== Base Layout ===== */
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--display-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.calculator {
+  width: 100%;
+  max-width: var(--calculator-max-width);
+}
