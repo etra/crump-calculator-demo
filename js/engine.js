@@ -181,6 +181,7 @@ export class CalculatorEngine {
 
   /**
    * Format a number for display, limiting to MAX_DIGITS significant digits.
+   * Falls back to scientific notation for very large or very small numbers.
    */
   _formatDisplay(value) {
     if (value === 0) return '0';
@@ -193,7 +194,20 @@ export class CalculatorEngine {
       return str;
     }
 
-    // Otherwise truncate to MAX_DIGITS significant digits
-    return String(parseFloat(value.toPrecision(MAX_DIGITS)));
+    // Try toPrecision first
+    const precise = parseFloat(value.toPrecision(MAX_DIGITS));
+    const preciseStr = String(precise);
+
+    // If the result is still too long, use scientific notation
+    if (preciseStr.length > MAX_DIGITS + 2) {
+      return value.toExponential(6);
+    }
+
+    return preciseStr;
+  }
+
+  /** Return the currently pending operation, if any. */
+  getOperation() {
+    return this.operation;
   }
 }
