@@ -72,3 +72,149 @@ body {
   width: 100%;
   max-width: var(--calculator-max-width);
 }
+
+/* ===== Display ===== */
+.display {
+  background-color: var(--display-color);
+  color: var(--display-text-color);
+  padding: var(--display-padding);
+  text-align: right;
+  min-height: 6rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.display-value {
+  font-size: var(--display-font-size);
+  font-weight: 300;
+  line-height: 1;
+  word-break: break-all;
+}
+
+/* ===== Keypad Grid ===== */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--grid-gap);
+}
+
+/* ===== Buttons (shared) ===== */
+.btn {
+  font-size: var(--btn-font-size);
+  padding: var(--btn-padding);
+  border-radius: var(--btn-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 0.1s ease;
+}
+
+/* ===== Number Buttons ===== */
+.btn-number {
+  background-color: var(--btn-number-color);
+  color: var(--btn-number-text-color);
+}
+
+/* ===== Operator Buttons ===== */
+.btn-operator {
+  background-color: var(--btn-operator-color);
+  color: var(--btn-operator-text-color);
+}
+
+/* ===== Function Buttons (AC, +/−, %) ===== */
+.btn-function {
+  background-color: var(--btn-function-color);
+  color: var(--btn-function-text-color);
+}
+
+/* ===== Zero Button (spans 2 columns) ===== */
+.btn-zero {
+  grid-column: span 2;
+  border-radius: 2rem;
+  aspect-ratio: auto;
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+/* ===== Hover & Active States ===== */
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn:active {
+  opacity: var(--btn-active-opacity);
+}
+
+.btn-number:hover {
+  background-color: #555;
+}
+
+.btn-number:active {
+  background-color: #6a6a6a;
+}
+
+.btn-operator:hover {
+  background-color: #f5b563;
+}
+
+.btn-operator:active {
+  background-color: #f8c77e;
+}
+
+.btn-function:hover {
+  background-color: #c5c5c5;
+}
+
+.btn-function:active {
+  background-color: #d9d9d9;
+}
+
+/* ===== Responsive ===== */
+
+/* Mobile: full-width, no rounding */
+@media (max-width: 480px) {
+  body {
+    align-items: flex-end;
+  }
+
+  .calculator {
+    max-width: 100%;
+  }
+
+  .btn {
+    border-radius: 0;
+    aspect-ratio: auto;
+    padding: 1.25rem 0.5rem;
+  }
+
+  .btn-zero {
+    border-radius: 0;
+    padding-left: 1.5rem;
+  }
+
+  .display {
+    padding: 1rem 1.25rem;
+    min-height: 5rem;
+  }
+
+  .display-value {
+    font-size: 3rem;
+  }
+}
+
+/* Large desktop: comfortable sizing */
+@media (min-width: 768px) {
+  .display {
+    padding: 1.5rem 2rem;
+    min-height: 7rem;
+  }
+
+  .display-value {
+    font-size: 4.5rem;
+  }
+}
