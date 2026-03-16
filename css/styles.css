@@ -31,6 +31,9 @@ button {
 :root {
   /* Colors */
   --bg-color: #fff;
+  --band-yellow: #FFD700;
+  --band-green: #28A745;
+  --band-red: #DC3545;
   --display-color: #000;
   --display-text-color: #fff;
   --btn-number-color: #333;
@@ -60,12 +63,47 @@ button {
 /* ===== Base Layout ===== */
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-color);
+  background:
+    linear-gradient(
+      to bottom,
+      var(--band-yellow) 0%, var(--band-yellow) 33.33%,
+      var(--band-green) 33.33%, var(--band-green) 66.66%,
+      var(--band-red) 66.66%, var(--band-red) 100%
+    )
+    fixed;
   color: var(--display-text-color);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.page-title {
+  font-family: var(--font-family);
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.page-description {
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  text-align: center;
+  max-width: 400px;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .calculator {
@@ -200,6 +238,20 @@ body {
 @media (max-width: 480px) {
   body {
     align-items: flex-end;
+  }
+
+  .page-wrapper {
+    padding: 1rem 0 0;
+    gap: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .page-description {
+    font-size: 0.85rem;
+    padding: 0 1rem;
   }
 
   .calculator {
