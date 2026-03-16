@@ -7,39 +7,42 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <main class="calculator">
-    <div class="display" role="status" aria-live="polite">
-      <span class="display-value">0</span>
-    </div>
-    <div class="keypad">
-      <!-- Function row -->
-      <button class="btn btn-function" data-action="clear">AC</button>
-      <button class="btn btn-function" data-action="toggle-sign">+/&minus;</button>
-      <button class="btn btn-function" data-action="percent">%</button>
-      <button class="btn btn-operator" data-action="operator" data-value="/">&divide;</button>
+  <div class="calculator-wrapper">
+    <main class="calculator">
+      <div class="display" role="status" aria-live="polite">
+        <span class="display-value">0</span>
+      </div>
+      <div class="keypad">
+        <!-- Function row -->
+        <button class="btn btn-function" data-action="clear">AC</button>
+        <button class="btn btn-function" data-action="toggle-sign">+/&minus;</button>
+        <button class="btn btn-function" data-action="percent">%</button>
+        <button class="btn btn-operator" data-action="operator" data-value="/">&divide;</button>
 
-      <!-- Number rows -->
-      <button class="btn btn-number" data-action="digit" data-value="7">7</button>
-      <button class="btn btn-number" data-action="digit" data-value="8">8</button>
-      <button class="btn btn-number" data-action="digit" data-value="9">9</button>
-      <button class="btn btn-operator" data-action="operator" data-value="*">&times;</button>
+        <!-- Number rows -->
+        <button class="btn btn-number" data-action="digit" data-value="7">7</button>
+        <button class="btn btn-number" data-action="digit" data-value="8">8</button>
+        <button class="btn btn-number" data-action="digit" data-value="9">9</button>
+        <button class="btn btn-operator" data-action="operator" data-value="*">&times;</button>
 
-      <button class="btn btn-number" data-action="digit" data-value="4">4</button>
-      <button class="btn btn-number" data-action="digit" data-value="5">5</button>
-      <button class="btn btn-number" data-action="digit" data-value="6">6</button>
-      <button class="btn btn-operator" data-action="operator" data-value="-">&minus;</button>
+        <button class="btn btn-number" data-action="digit" data-value="4">4</button>
+        <button class="btn btn-number" data-action="digit" data-value="5">5</button>
+        <button class="btn btn-number" data-action="digit" data-value="6">6</button>
+        <button class="btn btn-operator" data-action="operator" data-value="-">&minus;</button>
 
-      <button class="btn btn-number" data-action="digit" data-value="1">1</button>
-      <button class="btn btn-number" data-action="digit" data-value="2">2</button>
-      <button class="btn btn-number" data-action="digit" data-value="3">3</button>
-      <button class="btn btn-operator" data-action="operator" data-value="+">+</button>
+        <button class="btn btn-number" data-action="digit" data-value="1">1</button>
+        <button class="btn btn-number" data-action="digit" data-value="2">2</button>
+        <button class="btn btn-number" data-action="digit" data-value="3">3</button>
+        <button class="btn btn-operator" data-action="operator" data-value="+">+</button>
 
-      <!-- Bottom row -->
-      <button class="btn btn-number btn-zero" data-action="digit" data-value="0">0</button>
-      <button class="btn btn-number" data-action="decimal">.</button>
-      <button class="btn btn-operator" data-action="equals">=</button>
-    </div>
-  </main>
+        <!-- Bottom row -->
+        <button class="btn btn-number btn-zero" data-action="digit" data-value="0">0</button>
+        <button class="btn btn-number" data-action="decimal">.</button>
+        <button class="btn btn-operator" data-action="equals">=</button>
+      </div>
+    </main>
+    <footer class="calculator-footer">Built with ❤️</footer>
+  </div>
 
   <script type="module" src="js/engine.js"></script>
   <script type="module" src="js/app.js"></script>
