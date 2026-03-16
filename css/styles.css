@@ -76,13 +76,23 @@ body {
   max-width: var(--calculator-max-width);
 }
 
-.calculator-title {
-  font-family: var(--font-family);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1rem;
+.page-header {
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  font-family: var(--font-family);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.page-subtitle {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
 }
 
 .calculator {
@@ -238,9 +248,16 @@ body {
     padding-left: 1.5rem;
   }
 
-  .calculator-title {
-    font-size: 1.2rem;
+  .page-header {
     margin-bottom: 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
   }
 
   .display {
