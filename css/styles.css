@@ -30,7 +30,7 @@ button {
 /* ===== Custom Properties ===== */
 :root {
   /* Colors */
-  --bg-color: #000;
+  --bg-color: #fff;
   --display-color: #000;
   --display-text-color: #fff;
   --btn-number-color: #333;
@@ -71,6 +71,10 @@ body {
 .calculator {
   width: 100%;
   max-width: var(--calculator-max-width);
+  background-color: #000;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* ===== Display ===== */
@@ -200,6 +204,8 @@ body {
 
   .calculator {
     max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .btn {
