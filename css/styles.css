@@ -30,7 +30,7 @@ button {
 /* ===== Custom Properties ===== */
 :root {
   /* Colors */
-  --bg-color: #fff;
+  --bg-color: #7b2d8e;
   --display-color: #000;
   --display-text-color: #fff;
   --btn-number-color: #333;
@@ -66,6 +66,21 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculator-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .calculator {
@@ -217,6 +232,11 @@ body {
   .btn-zero {
     border-radius: 0;
     padding-left: 1.5rem;
+  }
+
+  .calculator-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 
   .display {
