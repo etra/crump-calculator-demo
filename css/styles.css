@@ -30,7 +30,7 @@ button {
 /* ===== Custom Properties ===== */
 :root {
   /* Colors */
-  --bg-color: #fff;
+  --bg-color: red;
   --display-color: #000;
   --display-text-color: #fff;
   --btn-number-color: #333;
